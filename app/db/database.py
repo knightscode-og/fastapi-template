@@ -1,6 +1,7 @@
 from odmantic import AIOEngine
 import motor.motor_asyncio
 from app.core.logging import logger
+from app.core.config import settings
 
 # Global variables for the database connection
 client = None
@@ -9,10 +10,8 @@ engine = None
 async def init_db():
     """Initialize the MongoDB client and engine."""
     global client, engine
-    client = motor.motor_asyncio.AsyncIOMotorClient(
-        "mongodb+srv://traveler_admin:vsbrfrKZqaT18PAA@cluster0.uvx7n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    )
-    engine = AIOEngine(client=client, database="traveler")
+    client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URI)
+    engine = AIOEngine(client=client, database=settings.DB_NAME)
     logger.debug(f"Database engine initialized: {engine}")
 
 async def close_db():

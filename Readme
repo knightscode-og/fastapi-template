@@ -1,0 +1,57 @@
+# FastAPI Template
+
+FastAPI Template is a FastAPI-based application for managing users. It uses MongoDB as the database and ODMantic as the ODM (Object-Document Mapper).
+
+## Project Structure
+.gitignore app/ pycache .env api/ pycache v1/ pycache/ users.py controllers/ pycache users.py core/ pycache config.py logging.py security.py db/ pycache database.py seeds.py main.py models/ pycache users.py app.log requirements.txt venv/ bin/ activate activate.csh activate.fish Activate.ps1 dotenv fastapi pip pip3 pip3.10 uvicorn include/ lib/ python3.10/ site-packages/ ... pyvenv.cfg
+
+
+## Setup
+
+1. Clone the repository:
+    ```sh
+    git clone <repository-url>
+    cd fastapi-template
+    ```
+
+2. Create and activate a virtual environment:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3. Install the dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. Create a `.env` file in the `app/` directory with the following content:
+    ```env
+    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/?retryWrites=true&w=majority&appName=Cluster0
+    DB_NAME=<db-name>
+    SECRET_KEY=your_secret_key
+    ```
+
+## Running the Application
+
+To start the FastAPI server, run the following command:
+```sh
+uvicorn app.main:app --reload
+
+The server will be accessible at http://127.0.0.1:8000.
+
+Project Modules
+app/main.py: The entry point of the application.
+app/api/v1/users.py: API routes for user management.
+app/controllers/users.py: Controller functions for user operations.
+app/core/config.py: Configuration settings.
+app/core/logging.py: Logging configuration.
+app/db/database.py: Database connection and initialization.
+app/models/users.py: User model definition.
+Logging
+Logs are configured to be written to app.log and the console. The logging configuration can be found in app/core/logging.py.
+
+License
+
+
+Make sure to replace `<repository-url>`, `<username>`, `<password>`, and `<cluster-url>` with the appropriate values for your project.
