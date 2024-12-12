@@ -2,3 +2,12 @@
 /app.log
 /venv
 app/.env
+
+# Ignore __pycache__ directories
+__pycache__/
+
+# Add other rules below
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
